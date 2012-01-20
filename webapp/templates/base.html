@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Example Webapp" content="www.example.com"/>
+    <title>webapp</title>
+
+    <link rel="shortcut icon" href="/static/img/favicon_32x32.ico">
+
+    {% block links %} {% endblock links %}
+    
+    {% block headscripts %} {% endblock headscripts %}
+  </head>
+	
+  <body id="body">
+    <div id="wrap">
+        {% block header %}
+        <header>
+        </header>
+        {% endblock header %}
+        {% block page %}
+        <!--  This is where the real stuff goes.   -->
+        {% endblock page %}
+    </div>
+    <footer>
+        {% block footer %}
+          <div id="footer">
+            © 2012 
+            <!--| <a href="/privacy">privacy policy</a>-->
+            <!--| <a href="/about">about</a>-->
+            <!--| <a href="mailto:support@example.com">contact</a>-->
+            <!--| <a href="/terms">terms of use</a>-->
+            <!--| <a href="http://twitter.com/example">follow</a>-->
+          </div>
+        {% endblock footer %}
+    </footer>
+ 
+    {% block endscripts %} {% endblock endscripts %}
+
+  </body>
+</html>
+
+
+
