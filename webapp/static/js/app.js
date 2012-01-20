@@ -1,13 +1,13 @@
 /* Author: Hugues Demers
  * Copyrights 2012
 */
-define(["jquery", "underscore", "viewmodel", "knockout"],
-function ($, _, viewmodel) {
+define(["jquery", "underscore", "viewmodel", "graph", "knockout"],
+function ($, _, viewmodel, graph) {
     var exports = {};
 
     exports.initialize = function () {
         console.log("Initializing app.");
-        console.log(viewmodel, ko);
+        graph.initialize("graphContainer1");
         ko.applyBindings(viewmodel);
     };
     return exports;
