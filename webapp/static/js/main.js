@@ -8,7 +8,8 @@ require({
         "knockout": "other/knockout-2.0.0",
         "json2": "other/json2",
         "underscore": "other/underscore-min",
-        "domReady": "other/domReady"
+        "domReady": "other/domReady",
+        "highcharts": "other/highcharts"
     }
 });
 
