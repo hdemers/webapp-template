@@ -4,8 +4,8 @@
 define(["knockout"],
 function () {
     var exports = {
-        firstName: ko.observable("John"),
-        lastName: ko.observable("Doe")
+        direct: ko.observable(true),
+        inverse: ko.observable(true)
     };
     return exports;
 });

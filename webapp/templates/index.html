@@ -7,8 +7,20 @@
 
 {% block page %}
 <div id="page">
-<p>First name: <strong data-bind="text: firstName"></strong></p>
-<p>Last name: <strong data-bind="text: lastName"></strong></p>
+    <div class="graph">
+        <div id="graphContainer1"></div>
+        <div class="graph-controls">
+            <button data-bind="click: refresh">Refresh</button>
+            Direct 
+            <input type="checkbox" data-bind="
+                checked: direct">
+            </input>
+            Inverse 
+            <input type="checkbox" data-bind="
+                checked: inverse">
+            </input>
+        </div>
+    </div>
 </div>
 {% endblock page %}
 
