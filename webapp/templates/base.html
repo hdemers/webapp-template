@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="Example Webapp" content="www.example.com"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>webapp</title>
 
     <link rel="shortcut icon" href="/static/img/favicon_32x32.ico">
@@ -13,28 +14,30 @@
   </head>
 	
   <body id="body">
-    <div id="wrap">
-        {% block header %}
-        <header>
-        </header>
-        {% endblock header %}
-        {% block page %}
-        <!--  This is where the real stuff goes.   -->
-        {% endblock page %}
-    </div>
-    <footer>
-        {% block footer %}
-          <div id="footer">
-            © 2012 
-            <!--| <a href="/privacy">privacy policy</a>-->
-            <!--| <a href="/about">about</a>-->
-            <!--| <a href="mailto:support@example.com">contact</a>-->
-            <!--| <a href="/terms">terms of use</a>-->
-            <!--| <a href="http://twitter.com/example">follow</a>-->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse"
+            data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <a class="brand" href="#">webapp</a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+            </ul>
           </div>
-        {% endblock footer %}
-    </footer>
- 
+        </div>
+      </div>
+    </div>
+    {% block content %}
+    {% endblock content %}
+
     {% block endscripts %} {% endblock endscripts %}
 
   </body>

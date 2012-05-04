@@ -1,39 +1,20 @@
-@import "reset.css";
-
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Cantarell);
-@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300&v2);
-
-html, body {
-    height: 100%;
-}
+@import "bootstrap.min.css";
+@import "bootstrap-responsive.min.css";
 
 body {
-    font-family: "Cantarell", "Helvetica Neue", Helvetica, Arial, sans-serif, default;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, default;
     background-color: #dddcd7;
 }
 
-#wrap {
-    min-height: 100%;
+
+.navbar-inner {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
+
 
 a {
     color: #5b4d3c;
 }
-
-/* The 2 following entries are for the sticky footer:           */
-/* http://www.cssstickyfooter.com/using-sticky-footer-code.html */
-#page {
-    overflow: auto;
-    padding-bottom: 60px;
-}
-
-#footer {
-    position: relative;
-    margin-top: -60px;
-    height: 60px;
-    clear: both;
-    text-align: center;
-}
-
-.hidden { display: none; }
 

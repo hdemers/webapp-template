@@ -1,9 +1,5 @@
 @import "base.css";
 
-#page {
-    margin-top: 5%;
-}
-
 .graph {
     width: 90%;
     height: 400px;

@@ -1,5 +1,8 @@
-define(["json2"],
-function () {
+/* Author: Hugues Demers
+ * Copyrights 2012
+ */
+define(["jquery", "json2"],
+function ($) {
   var ajax, 
     errorCallback,
     exports = {};

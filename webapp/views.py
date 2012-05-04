@@ -4,7 +4,8 @@ from flask import render_template, jsonify
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    config = {'configOption': "configValue"}
+    return render_template('index.html', config=config)
 
 
 @app.route('/series')
