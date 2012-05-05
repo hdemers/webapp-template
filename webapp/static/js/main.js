@@ -11,7 +11,8 @@ require({
     "domReady": "other/domReady",
     "highcharts": "other/highcharts",
     "bootstrap": "other/bootstrap.min",
-    "moment": "other/moment.min"
+    "moment": "other/moment.min",
+    "d3": "http://d3js.org/d3.v2"
   }
 });
 

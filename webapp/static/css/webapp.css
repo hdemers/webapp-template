@@ -13,3 +13,8 @@
     padding: 10px;
     color: #4f4f4f;
 }
+
+.chart rect {
+  stroke: white;
+  fill: steelblue;
+}
