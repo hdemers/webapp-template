@@ -1,7 +1,7 @@
 import logging
 
 from flask import Flask
-from flask_debugtoolbar import DebugToolbarExtension
+#from flask_debugtoolbar import DebugToolbarExtension
 
 FORMAT = "%(asctime)s] %(levelname)s %(module)s %(funcName)s: %(message)s"
 
@@ -23,6 +23,6 @@ logger.addHandler(console_handler)
 app.config['SECRET_KEY'] = 'oftg09jW2FtbXfcud9OS'
 
 # Flask debug toolbar
-toolbar = DebugToolbarExtension(app)
+#toolbar = DebugToolbarExtension(app)
 
 import webapp.views

@@ -4,16 +4,18 @@
 require({
   paths: {
     "jquery": "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min",
-    "knockout": "other/knockout-latest",
-    "knockout.mapping": "other/knockout.mapping",
+    "knockout": "http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-2.1.0",
     "json2": "other/json2",
     "underscore": "other/underscore-min",
     "domReady": "other/domReady",
     "highcharts": "other/highcharts",
     "bootstrap": "other/bootstrap.min",
     "moment": "other/moment.min",
-    "d3": "http://d3js.org/d3.v2"
-  }
+    "d3": "http://mbostock.github.com/d3/d3",
+  },
+  priority: [
+    "jquery"
+  ]
 });
 
 require(['domReady', 'app'], 
