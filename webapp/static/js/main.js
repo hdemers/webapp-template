@@ -1,24 +1,52 @@
 /* Author: Hugues Demers
- * Copyrights 2012
+ * Copyrights 2013
 */
 require({
   paths: {
-    "jquery": "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min",
-    "knockout": "http://cloud.github.com/downloads/SteveSanderson/knockout/knockout-2.1.0",
-    "json2": "other/json2",
+    "jquery": "other/jquery-1.9.1.min",
+    "knockout": "other/knockout-2.2.1",
     "underscore": "other/underscore-min",
     "domReady": "other/domReady",
     "highcharts": "other/highcharts",
     "bootstrap": "other/bootstrap.min",
     "moment": "other/moment.min",
-    "d3": "http://mbostock.github.com/d3/d3",
+    "d3": "other/d3.v3",
+    "pusher": "https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min",
+    "topo": "other/topojson.v1.min",
+    "projection": "other/d3.geo.projection.v0.min"
   },
-  priority: [
-    "jquery"
-  ]
+  shim: {
+    'underscore': {
+      exports: '_'
+    },
+    'knockout': {
+      exports: 'ko'
+    },
+    'moment': {
+      exports: 'moment'
+    },
+    'pusher': {
+      exports: 'Pusher'
+    },
+    'd3': {
+      exports: 'd3'
+    },
+    'topo': {
+      exports: 'topo',
+      deps: ['d3']
+    },
+    'projection': {
+      exports: 'projection',
+      deps: ['d3']
+    },
+    'bootstrap': {
+      exports: 'bootstrap',
+      deps: ['jquery']
+    }
+  }
 });
 
-require(['domReady', 'app'], 
+require(['domReady', 'app'],
 function (domReady, app) {
   domReady(function () {
     console.log("DOM ready.");
