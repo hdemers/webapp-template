@@ -19,4 +19,3 @@ def evt(evt_type, data=None, request=None):
         data['root'] = request.url_root
         data['method'] = request.method
     event(evt_type, data)
-

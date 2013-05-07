@@ -1,6 +1,5 @@
-fabric==1.5.3
 flask==0.9
 requests==1.1.0
-git+https://github.com/ooda/cloudly.git@v1.1.1#egg=cloudly==1.1.1
+twitter==1.9.4
 gunicorn==0.17.2
-newrelic==1.10.0.28
+git+https://github.com/ooda/cloudly.git@3.0.0#egg=cloudly==3.0.0

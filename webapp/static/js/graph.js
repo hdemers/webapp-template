@@ -1,11 +1,16 @@
 /* Author: Hugues Demers
- * Copyrights 2012
+ * Copyrights 2013
  */
 /*global Highcharts:false*/
-define(["jquery", "underscore", "viewmodel", "rest", "highcharts"],
-function ($, _, viewmodel, rest) {
-  var exports = {}, chartOptions, serie, chart, 
-    subscribe, 
+define([
+  "jquery",
+  "underscore",
+  "viewmodel",
+  "highcharts"
+],
+function ($, _, viewmodel) {
+  var exports = {}, chartOptions, serie, chart,
+    subscribe,
     showDirect,
     showInverse,
     directSerie,
@@ -19,11 +24,12 @@ function ($, _, viewmodel, rest) {
   };
 
   addSeries = function (data) {
+    console.log(data);
     _.each(data.data.series, function (serie) {
       chart.addSeries(serie);
     });
     chart.hideLoading();
-  }
+  };
 
   viewmodel.refresh = function () {
     if (chart) {
@@ -31,7 +37,11 @@ function ($, _, viewmodel, rest) {
     }
     chart = new Highcharts.Chart(chartOptions);
     chart.showLoading();
-    rest.get("/series", {}, addSeries);
+    $.ajax({
+      url: "/series",
+      type: "GET",
+      dataType: "json"
+    }).done(addSeries);
   };
 
   subscribe = function () {
@@ -87,7 +97,7 @@ function ($, _, viewmodel, rest) {
     colors: ['#094b5c', '#238F00', '#ED561B', '#A4A300', '#24CBE5',
     '#1B6CFF', '#BE0000', '#00EF1D', '#AB00FE', '#00CCA0'],
     navigation: {
-      buttonOptions: { 
+      buttonOptions: {
         enabled: false
       }
     },
