@@ -3,10 +3,13 @@ This module instantiates the Flask application and declares the main error
 handling function ``make_json_error``.
 """
 
+# IMPORTANT: updates to the following must also be done in setup.py.
 __title__ = "Webapp template"
 __version__ = "0.1.0"
 __author__ = "Hugues Demers"
+__email__ = "hdemers@gmail.com"
 __copyright__ = "Copyright 2013 Hugues Demers"
+__license__ = "MIT"
 
 import os
 import traceback
@@ -16,7 +19,7 @@ from werkzeug.exceptions import default_exceptions
 from werkzeug.exceptions import HTTPException
 
 from cloudly import logger
-from cloudly.notify import notify
+from cloudly.notify import notify as cloudly_notify
 from webapp.metric import evt
 
 FORMAT = "%(asctime)s] %(levelname)s %(module)s %(funcName)s: %(message)s"
@@ -46,13 +49,20 @@ def make_json_error(ex):
     response.status_code = code
 
     if code in [500]:
-        notify("Webapp exception: {}".format(code),
-               "{}\n\n{}".format(ex, traceback.format_exc(ex)))
+        notify(ex, code)
 
     evt("error", {'code': code}, request=request)
     return response
 
 for code in default_exceptions.iterkeys():
     app.error_handler_spec[None][code] = make_json_error
+
+
+def notify(exception, code=None):
+    if not code:
+        code = exception.code if isinstance(exception, HTTPException) else 500
+    cloudly_notify("Exception: {}".format(code), "{}\n\n{}".format(
+        exception, traceback.format_exc(exception)))
+
 
 import webapp.views

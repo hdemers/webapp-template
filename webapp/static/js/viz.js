@@ -1,9 +1,9 @@
 /* Author: Hugues Demers
- * Copyrights 2012
+ * Copyrights 2013
  */
 /*global */
 define(["jquery", "underscore", "viewmodel", "d3"],
-function ($, _, viewmodel) {
+function ($, _, viewmodel, d3) {
   var exports = {};
 
   // The following bar chart is taken from the D3 tutorial:
@@ -33,7 +33,7 @@ function ($, _, viewmodel) {
         .data(data)
       .enter().append("text")
         .attr("x", x)
-        .attr("y", function(d) { return y(d) + y.rangeBand() / 2; })
+        .attr("y", function (d) { return y(d) + y.rangeBand() / 2; })
         .attr("dx", -3) // padding-right
         .attr("dy", ".35em") // vertical-align: middle
         .attr("text-anchor", "end") // text-align: right

@@ -1,13 +1,15 @@
 """
 URL routes declarations.
 
+All views are currently declared here.
+
 """
 import os
 
 from webapp import app, make_json_error
 from flask import render_template, jsonify
 
-from cloudly import logger
+from cloudly import logger, pushers
 
 log = logger.init(__name__)
 
@@ -19,8 +21,15 @@ def error_handler(error):
 
 @app.route('/')
 def index():
-    config = {'configOption': "configValue"}
-    return render_template('index.html', config=config)
+    """The webapp entry point.
+    Configuration options are set here and available to the client via the
+    global variable `appConfig`, see templates/base.html.
+    """
+    webapp_config = {
+        'subscribeKey': pushers.KEY,
+        'channel': "tweets",
+    }
+    return render_template('index.html', config=webapp_config)
 
 
 @app.route('/series')
