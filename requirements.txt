@@ -1,5 +1,4 @@
 flask==0.9
 requests==1.1.0
-twitter==1.9.4
 gunicorn==0.17.2
-git+https://github.com/ooda/cloudly.git@3.0.0#egg=cloudly==3.0.0
+git+https://github.com/ooda/cloudly.git#egg=cloudly

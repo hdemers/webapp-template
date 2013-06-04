@@ -6,10 +6,10 @@ All views are currently declared here.
 """
 import os
 
-from webapp import app, make_json_error
-from flask import render_template, jsonify
+from webapp import app, make_json_error, config
+from flask import render_template
 
-from cloudly import logger, pushers
+from cloudly import logger
 
 log = logger.init(__name__)
 
@@ -26,31 +26,10 @@ def index():
     global variable `appConfig`, see templates/base.html.
     """
     webapp_config = {
-        'subscribeKey': pushers.KEY,
-        'channel': "tweets",
+        'subscribeKey': os.environ.get("PUSHER_KEY"),
+        'channel': config.pubsub_channel,
     }
     return render_template('index.html', config=webapp_config)
-
-
-@app.route('/series')
-def series():
-    x = [1, 2, 3, 4, 5, 6]
-    y = [1, 2, 3, 4, 5, 6]
-    data = {
-        'series': [
-            make_serie("direct", "direct", zip(x, y)),
-            make_serie("inverse", "inverse", zip(x, reversed(y))),
-        ]
-    }
-    return jsonify(data=data)
-
-
-def make_serie(name, serie_id, data):
-    return {
-        'name': name,
-        'id': serie_id,
-        'data': data
-    }
 
 
 def in_production():
