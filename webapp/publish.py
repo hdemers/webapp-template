@@ -1,34 +1,18 @@
 from cloudly.pubsub import Pusher
-from cloudly.tweets import Tweets
-from cloudly.twitterstream import Streamer
+from cloudly.tweets import Tweets, StreamManager, keep
 
 from webapp import config
 
-
-class Publisher(Pusher):
-    def publish(self, tweets, event):
-        """Keep only relevant fields from the given tweets."""
-        stripped = []
-        for tweet in tweets:
-            stripped.append({
-                'coordinates': tweet['coordinates'],
-            })
-        super(Publisher, self).publish(stripped, event)
+pubsub = Pusher.open(config.pubsub_channel)
 
 
-def processor(tweet):
-    return True
+def processor(tweets):
+    pubsub.publish(keep(['coordinates'], tweets), "tweets")
+    return len(tweets)
 
 
 def start():
-    # This trick of importing the current module is for RQ workers to
-    # correctly unpickle the `processor` function.
-    from webapp import publish
-
-    pubsub = publish.Publisher.open(config.pubsub_channel)
-    streamer = Streamer(publish.processor, pubsub=pubsub, is_queuing=True,
-                        cache_length=100)
-
+    streamer = StreamManager('locate', processor, is_queuing=False)
     tweets = Tweets()
     streamer.run(tweets.with_coordinates())
 
