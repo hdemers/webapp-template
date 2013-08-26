@@ -1,4 +1,6 @@
-/*global */
+/* Author: Hugues Demers
+ * Copyrights 2013
+ */
 define(["jquery", "viewmodel", "bootstrap"],
 function ($, viewmodel, bootstrap) {
   var exports = {}, setTimer, timerId;

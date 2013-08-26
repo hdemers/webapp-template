@@ -1,19 +1,9 @@
+/* Author: Hugues Demers
+ * Copyrights 2013
+ */
 @import "bootstrap.min.css";
 @import "bootstrap-responsive.min.css";
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, default;
 }
-
-
-.navbar-inner {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-
-
-a {
-    color: #5b4d3c;
-}
-

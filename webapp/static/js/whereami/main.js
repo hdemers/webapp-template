@@ -2,18 +2,15 @@
  * Copyrights 2013
 */
 require({
+  baseUrl: "static/js",
   paths: {
     "jquery": "other/jquery-1.9.1.min",
     "knockout": "other/knockout-2.2.1",
     "underscore": "other/underscore-min",
     "domReady": "other/domReady",
-    "highcharts": "other/highcharts",
     "bootstrap": "other/bootstrap.min",
-    "moment": "other/moment.min",
-    "d3": "other/d3.v3",
-    "pusher": "https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min",
-    "topo": "other/topojson.v1.min",
-    "projection": "other/d3.geo.projection.v0.min"
+    "leaflet": "http://cdn.leafletjs.com/leaflet-0.6.4/leaflet",
+    "usermarker": "other/leaflet.usermarker"
   },
   shim: {
     'underscore': {
@@ -22,36 +19,27 @@ require({
     'knockout': {
       exports: 'ko'
     },
-    'moment': {
-      exports: 'moment'
-    },
-    'pusher': {
-      exports: 'Pusher'
-    },
-    'd3': {
-      exports: 'd3'
-    },
-    'topo': {
-      exports: 'topo',
-      deps: ['d3']
-    },
-    'projection': {
-      exports: 'projection',
-      deps: ['d3']
-    },
     'bootstrap': {
       exports: 'bootstrap',
       deps: ['jquery']
+    },
+    'leaflet': {
+      exports: 'leaflet',
+    },
+    'usermarker': {
+      exports: 'usermarker',
+      deps: ['leaflet']
     }
   }
 });
 
-require(['domReady', 'app'],
+require(['domReady', 'whereami/app'],
 function (domReady, app) {
   domReady(function () {
     console.log("DOM ready.");
     app.initialize();
   });
 });
+
 
 
