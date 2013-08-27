@@ -16,7 +16,7 @@ function ($, _, ko, viewmodel, twitter, worldmap, moment) {
     previous_receipt_at = 0, tweet_cache = [], intervalId = null;
 
   exports.initialize = function () {
-    console.log("Initializing app.");
+    console.log("Initializing 'birdwatch' app.");
     ko.applyBindings(viewmodel);
 
     $("#worldmap").height($(window).height());
