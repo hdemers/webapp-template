@@ -19,9 +19,9 @@ def error_handler(error):
     return make_json_error(error)
 
 
-@app.route('/')
-def index():
-    """The webapp entry point.
+@app.route('/birdwatch')
+def birdwatch():
+    """A map with real-time tweets shown.
     Configuration options are set here and available to the client via the
     global variable `appConfig`, see templates/base.html.
     """
@@ -29,7 +29,19 @@ def index():
         'subscribeKey': os.environ.get("PUSHER_KEY"),
         'channel': config.pubsub_channel,
     }
-    return render_template('index.html', config=webapp_config)
+    return render_template('birdwatch.html', config=webapp_config)
+
+
+@app.route('/whereami')
+def whereami():
+    """An OpenStreet map showing your position.
+    Configuration options are set here and available to the client via the
+    global variable `appConfig`, see templates/base.html.
+    """
+    webapp_config = {
+        'cloudmadeApiKey': config.cloudmade_api_key,
+    }
+    return render_template('whereami.html', config=webapp_config)
 
 
 def in_production():

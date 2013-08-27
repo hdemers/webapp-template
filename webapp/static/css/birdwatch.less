@@ -1,0 +1,29 @@
+/* Author: Hugues Demers
+ * Copyrights 2013
+ */
+@import "base.css";
+
+
+@dot: #00beff;
+@background: #2e2d27;
+@land: #34332c;
+@boundary: @background;
+
+
+body {
+    background-color: @background;
+}
+
+.land {
+    fill: @land;
+}
+
+.boundary {
+    fill: none;
+    stroke: @boundary;
+    stroke-width: .5px;
+}
+
+.dot {
+    fill: @dot;
+}
