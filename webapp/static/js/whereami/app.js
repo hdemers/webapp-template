@@ -14,22 +14,8 @@ function ($, _, map) {
   exports.initialize = function () {
     console.log("Initializing 'whereami' app.");
 
-    // Set the height of the div `#map`.
-    resizeMap();
     // Build our map.
     map.initialize(mapElement);
-  };
-
-  /**
-   * When the window resizes, make sure our div `#map` is also updated.
-   */
-  $(window).resize(function () {
-    resizeMap();
-  });
-
-
-  resizeMap = function () {
-    $("#" + mapElement).height($(window).height());
   };
 
   return exports;
