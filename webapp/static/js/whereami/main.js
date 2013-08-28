@@ -8,9 +8,10 @@ require({
     "knockout": "other/knockout-2.2.1",
     "underscore": "other/underscore-min",
     "domReady": "other/domReady",
-    "bootstrap": "other/bootstrap.min",
+    "bootstrap": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min",
     "leaflet": "http://cdn.leafletjs.com/leaflet-0.6.4/leaflet",
-    "usermarker": "other/leaflet.usermarker"
+    "usermarker": "other/leaflet.usermarker",
+    "peerjs": "http://cdn.peerjs.com/0/peer"
   },
   shim: {
     'underscore': {
@@ -29,11 +30,14 @@ require({
     'usermarker': {
       exports: 'usermarker',
       deps: ['leaflet']
+    },
+    'peerjs': {
+      exports: 'peerjs'
     }
   }
 });
 
-require(['domReady', 'whereami/app'],
+require(['domReady', 'whereami/app', 'bootstrap'],
 function (domReady, app) {
   domReady(function () {
     console.log("DOM ready.");

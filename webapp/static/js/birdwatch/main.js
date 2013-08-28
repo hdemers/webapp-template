@@ -8,7 +8,7 @@ require({
     "knockout": "other/knockout-2.2.1",
     "underscore": "other/underscore-min",
     "domReady": "other/domReady",
-    "bootstrap": "other/bootstrap.min",
+    "bootstrap": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min",
     "moment": "other/moment.min",
     "d3": "other/d3.v3",
     "pusher": "https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min",

@@ -13,6 +13,48 @@
 {% endblock headscripts %}
 
 {% block content %}
+<!-- Button trigger modal -->
+<a id="locate" data-toggle="modal" href="#modal"
+  class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-share-alt"></span> Locate
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Invite a friend to share its location and share
+          yours</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="senderEmail">Your email address</label>
+            <input type="email" class="form-control" id="senderEmail"
+            placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="receiverEmail">Your friend's email address</label>
+            <input type="email" class="form-control" id="receiverEmail"
+            placeholder="Enter email">
+          </div>
+        </form>
+        <small>We don't collect email addresses. Ever.<small>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+          data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"
+          data-bind="click: connect">Send invitation</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <div id="map"></div>
 {% endblock content %}
 

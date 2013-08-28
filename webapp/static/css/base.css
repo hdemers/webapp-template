@@ -1,8 +1,7 @@
 /* Author: Hugues Demers
  * Copyrights 2013
  */
-@import "bootstrap.min.css";
-@import "bootstrap-responsive.min.css";
+@import "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css";
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, default;

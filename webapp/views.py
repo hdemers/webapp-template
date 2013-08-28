@@ -40,6 +40,7 @@ def whereami():
     """
     webapp_config = {
         'cloudmadeApiKey': config.cloudmade_api_key,
+        'peerserverApiKey': config.peerserver_api_key,
     }
     return render_template('whereami.html', config=webapp_config)
 
