@@ -2,19 +2,21 @@
  * Copyrights 2013
   
 */
-/*global Peer:false, appConfig:false*/
+/*global Peer:false, appConfig:false, CryptoJS:false*/
 define([
   "jquery",
   "underscore",
   "knockout",
   "map",
   "viewmodel",
+  "md5",
   "peerjs"
 ],
 function ($, _, ko, map, viewmodel) {
   var exports = {}, mapElement = 'map',
     myId = "hdemersgmailcom", peerId = "huguesdemersgmailcom",
-    peer = null;
+    peer = null,
+    addUser;
 
   exports.initialize = function () {
     console.log("Initializing 'whereami' app.");
@@ -52,6 +54,13 @@ function ($, _, ko, map, viewmodel) {
   viewmodel.connect = function () {
     console.log("Locate");
   };
+
+
+  addUser = function (location, email) {
+    var iconUrl = "http://www.gravatar.com/avatar/" + CryptoJS.MD5(email);
+    map.addMarker(location, iconUrl);
+  };
+
   return exports;
 });
 

@@ -2,14 +2,14 @@
  * Copyrights 2013
  */
 
-/*global L:false, appConfig:false*/
+/*global appConfig:false*/
 define([
   "jquery",
   "underscore",
   "leaflet",
   "usermarker"
 ],
-function ($, _, leaflet) {
+function ($, _, L) {
   var exports = {}, map, mapElement, marker;
 
   exports.initialize = function (element) {
@@ -45,6 +45,11 @@ function ($, _, leaflet) {
       setView: true,
       enableHighAccuracy: true
     });
+
+    exports.addMarker = function (location, iconUrl) {
+      var icon = L.icon({iconUrl: iconUrl});
+      L.marker(location, {icon: icon}).addTo(map);
+    };
   };
 
   return exports;

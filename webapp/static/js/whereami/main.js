@@ -11,7 +11,8 @@ require({
     "bootstrap": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min",
     "leaflet": "http://cdn.leafletjs.com/leaflet-0.6.4/leaflet",
     "usermarker": "other/leaflet.usermarker",
-    "peerjs": "http://cdn.peerjs.com/0/peer"
+    "peerjs": "http://cdn.peerjs.com/0/peer",
+    "md5": "http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5"
   },
   shim: {
     'underscore': {
@@ -33,6 +34,9 @@ require({
     },
     'peerjs': {
       exports: 'peerjs'
+    },
+    'md5': {
+      exports: 'md5'
     }
   }
 });
