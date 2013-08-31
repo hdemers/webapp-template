@@ -6,7 +6,7 @@ All views are currently declared here.
 """
 import os
 
-from webapp import app, make_json_error, config
+from webapp import app, make_json_error, config, request, jsonify
 from flask import render_template
 
 from cloudly import logger
@@ -43,6 +43,12 @@ def whereami():
         'peerserverApiKey': config.peerserver_api_key,
     }
     return render_template('whereami.html', config=webapp_config)
+
+
+@app.route('/report')
+def report():
+    print request.args.get("sender")
+    return jsonify({})
 
 
 def in_production():

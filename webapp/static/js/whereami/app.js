@@ -23,9 +23,6 @@ function ($, _, ko, map, viewmodel) {
     
     ko.applyBindings(viewmodel);
 
-    // Build our map.
-    map.initialize(mapElement);
-
     // Connect to the PeerServer Cloud
     peer = new Peer(myId,
       {key: appConfig.peerserverApiKey}
@@ -44,10 +41,26 @@ function ($, _, ko, map, viewmodel) {
     peer = new Peer(peerId,
       {key: appConfig.peerserverApiKey}
     );
-    var conn = peer.connect(myId);
+    var conn = peer.connect(myId, {serialization: "json"});
     conn.on('open', function () {
       console.log("Peer connection opened.");
       conn.send('Hello world!');
+      // Build our map.
+      map.initialize(mapElement);
+      
+      map.on('locationfound', function (location) {
+        console.log("Received location data.");
+        var data = {
+          latlng: location.latlng.lat,
+          sender: myId
+        };
+        conn.send(data);
+        $.ajax({
+          url: '/report',
+          data: data
+        });
+      });
+
     });
   };
 

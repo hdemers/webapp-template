@@ -28,6 +28,7 @@ function ($, _, L) {
     map.setView([35, -50], 3);
 
     map.on("locationfound", function (location) {
+      console.log("Location found");
       if (!marker) {
         marker = L.userMarker(location.latlng, {
           pulsing: false,  // Very cool to have, but takes all the CPU.
@@ -40,9 +41,9 @@ function ($, _, L) {
     });
 
     map.locate({
-      watch: false,
+      watch: true,
       locate: true,
-      setView: true,
+      //setView: true,
       enableHighAccuracy: true
     });
 
@@ -50,6 +51,10 @@ function ($, _, L) {
       var icon = L.icon({iconUrl: iconUrl});
       L.marker(location, {icon: icon}).addTo(map);
     };
+  };
+
+  exports.on = function (eventType, callback) {
+    map.on(eventType, callback);
   };
 
   return exports;
