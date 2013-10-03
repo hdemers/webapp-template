@@ -6,9 +6,10 @@ All views are currently declared here.
 """
 import os
 
-from webapp import app, make_json_error, config
 from flask import render_template
+import gevent
 
+from webapp import app, make_json_error, config, publish, sockets
 from cloudly import logger
 
 log = logger.init(__name__)
@@ -26,7 +27,6 @@ def birdwatch():
     global variable `appConfig`, see templates/base.html.
     """
     webapp_config = {
-        'subscribeKey': os.environ.get("PUSHER_KEY"),
         'channel': config.pubsub_channel,
     }
     return render_template('birdwatch.html', config=webapp_config)
@@ -42,6 +42,20 @@ def whereami():
         'cloudmadeApiKey': config.cloudmade_api_key,
     }
     return render_template('whereami.html', config=webapp_config)
+
+
+@sockets.route('/tweets')
+def tweets(websocket):
+    log.debug("Registering new websocket client.")
+    publish.subscribe(websocket)
+    publish.start()
+
+    while websocket.socket is not None:
+        # Context switch while `publish.start` is running in the
+        # background.
+        gevent.sleep()
+
+    log.debug("Connection closed.")
 
 
 def in_production():

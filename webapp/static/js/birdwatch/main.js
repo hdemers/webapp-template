@@ -11,7 +11,6 @@ require({
     "bootstrap": "other/bootstrap.min",
     "moment": "other/moment.min",
     "d3": "other/d3.v3",
-    "pusher": "https://d3dy5gmtp8yhk7.cloudfront.net/2.0/pusher.min",
     "topo": "other/topojson.v1.min",
     "projection": "other/d3.geo.projection.v0.min"
   },
@@ -24,9 +23,6 @@ require({
     },
     'moment': {
       exports: 'moment'
-    },
-    'pusher': {
-      exports: 'Pusher'
     },
     'd3': {
       exports: 'd3'
