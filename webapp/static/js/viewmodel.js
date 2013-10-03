@@ -4,6 +4,8 @@
 define(["knockout"],
 function (ko) {
   var exports = {
+    alertMsg: ko.observable(''),
+    alertHeading: ko.observable(''),
   };
   return exports;
 });
