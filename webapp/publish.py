@@ -3,7 +3,7 @@ from cloudly.tweets import Tweets, StreamManager, keep
 
 from webapp import config
 
-pubsub = Pusher.open(config.pubsub_channel)
+pubsub = Pusher(config.pubsub_channel)
 
 
 def processor(tweets):
