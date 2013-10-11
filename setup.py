@@ -16,7 +16,7 @@ GITHUB = "github.com/ooda"
 # git+http://username:password@github.com/ooda/package@v0.1.3#egg=package-0.1.3
 #
 dependencies = [
-    ('cloudly', '3.0.0'),
+    ('cloudly', 'master'),
 ]
 
 # Generate links
@@ -30,7 +30,7 @@ dependency_links = [
 ]
 
 github_install_requires = [
-    "{pkg}=={ver}".format(
+    "{pkg}".format(
         pkg=package,
         ver=version,
     )
@@ -49,6 +49,6 @@ setup(
     dependency_links=dependency_links,
     scripts=['bin/env_run.sh'],
     install_requires=[
-        'flask==0.9',
+        'flask',
     ] + github_install_requires
 )
