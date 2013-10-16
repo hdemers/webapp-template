@@ -7,11 +7,11 @@ define([
   "underscore",
   "knockout",
   "viewmodel",
-  "twitter",
+  "websocket",
   "worldmap",
   "moment"
 ],
-function ($, _, ko, viewmodel, twitter, worldmap, moment) {
+function ($, _, ko, viewmodel, websocket, worldmap, moment) {
   var exports = {}, dot, points = [], world, deburst,
     previous_receipt_at = 0, tweet_cache = [], intervalId = null;
 
@@ -21,8 +21,7 @@ function ($, _, ko, viewmodel, twitter, worldmap, moment) {
 
     $("#worldmap").height($(window).height());
     world = worldmap.create("#worldmap");
-    twitter.init();
-    twitter.bind("tweets", deburst);
+    websocket.initialize("tweets", deburst);
   };
 
   /**

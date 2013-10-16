@@ -10,9 +10,12 @@ twitter==1.9.4
 pubnub==3.3.1
 pyyaml==3.10
 termcolor==1.1.0
+gevent==0.13.8
+gevent-websocket==0.3.6
 
 # webapp requirements
 flask==0.9
+flask-sockets==0.1
 requests==1.1.0
 gunicorn==0.17.2
-git+https://github.com/ooda/cloudly.git@v0.6.0#egg=cloudly-v0.6.0
+git+https://github.com/ooda/cloudly.git@master#egg=cloudly-master
