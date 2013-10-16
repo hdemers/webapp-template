@@ -15,6 +15,7 @@ import os
 import traceback
 
 from flask import Flask, jsonify, request
+from flask_sockets import Sockets
 from werkzeug.exceptions import default_exceptions
 from werkzeug.exceptions import HTTPException
 
@@ -26,6 +27,7 @@ FORMAT = "%(asctime)s] %(levelname)s %(module)s %(funcName)s: %(message)s"
 
 # The application
 app = Flask(__name__)
+sockets = Sockets(app)
 
 # Debugging
 app.debug = True
@@ -65,4 +67,4 @@ def notify(exception, code=None):
         exception, traceback.format_exc(exception)))
 
 
-import webapp.views
+import webapp.views  # noqa
