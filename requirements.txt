@@ -17,5 +17,5 @@ gevent-websocket==0.3.6
 flask==0.9
 flask-sockets==0.1
 requests==1.1.0
-gunicorn==0.17.2
+gunicorn==19.5.0
 git+https://github.com/ooda/cloudly.git@master#egg=cloudly-master
