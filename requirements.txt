@@ -14,7 +14,7 @@ gevent==0.13.8
 gevent-websocket==0.3.6
 
 # webapp requirements
-flask==0.9
+flask==1.0
 flask-sockets==0.1
 requests==1.1.0
 gunicorn==0.17.2
